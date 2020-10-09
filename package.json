@@ -1,19 +1,19 @@
 {
   "name": "cim-keycloak",
   "version": "1.0.0",
-  "description": "",
+  "description": "modules",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saqibs98/keycloak-cim.git"
+    "url": "git+https://github.com/saqibs98/cim-keycloak.git"
   },
-  "author": "",
+  "author": "saqib",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/saqibs98/keycloak-cim/issues"
+    "url": "https://github.com/saqibs98/cim-keycloak/issues"
   },
-  "homepage": "https://github.com/saqibs98/keycloak-cim#readme"
+  "homepage": "https://github.com/saqibs98/cim-keycloak#readme"
 }
