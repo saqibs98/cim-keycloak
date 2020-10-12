@@ -34,11 +34,11 @@ app.use(bodyParser.json());
     {
       //----------------------------
         const requestBody = {
-          username: req.body.username,
-          password: req.body.password,
-          client_id: process.env.CLIENT_ID || "Course-management",
-          client_secret: process.env.CLIENT_SECRET || '3c9b9454-fbe7-41a8-ac7d-e1b42b560d11',
-          grant_type: process.env.GRANT_TYPE || 'password'
+          username: "agent1",//req.body.username,
+          password: "agent1",//req.body.password,
+          client_id: "Bank",//process.env.CLIENT_ID || "Bank",
+          client_secret: '2e991b1c-d340-437d-91a2-620465c51a4e', //process.env.CLIENT_SECRET || '2e991b1c-d340-437d-91a2-620465c51a4e',
+          grant_type:  'password' //process.env.GRANT_TYPE || 'password'
         }
         var config = {
           headers: {
@@ -56,7 +56,7 @@ app.use(bodyParser.json());
             if(response.data.access_token){
               var requestBody2 = {
                 grant_type: "urn:ietf:params:oauth:grant-type:uma-ticket",
-                audience: process.env.CLIENT_ID || "Course-management",
+                audience: "Bank",//process.env.CLIENT_ID || "Bank",
               }
               token = response.data.access_token;
               
@@ -72,8 +72,8 @@ app.use(bodyParser.json());
               .then((responses) => {
                 token = responses.data.access_token;
                 var requestBody1 = {
-                  client_id: process.env.CLIENT_ID || "Course-management",
-                  client_secret: process.env.CLIENT_SECRET || '3c9b9454-fbe7-41a8-ac7d-e1b42b560d11',
+                  client_id: "Bank",//process.env.CLIENT_ID || "Bank",,
+                  client_secret: '2e991b1c-d340-437d-91a2-620465c51a4e', //process.env.CLIENT_SECRET || '2e991b1c-d340-437d-91a2-620465c51a4e',
                   token: token,
                   grant_type: 'password',
                 }
@@ -97,7 +97,8 @@ app.use(bodyParser.json());
       
               // responses.data.access_token=token;
                 console.log("///// RPT  ",responses);
-                res.send({data:responses.data});
+                //res.send({data:responses.data});
+                return responses.data;
               })
               .catch((er) => {
                 console.log(er);
