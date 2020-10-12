@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
@@ -8,7 +9,6 @@ const { request, response } = require('express');
 var keycloak = new Keycloak({ store: memoryStore })
 const { URLSearchParams } = require('url'); 
 const fetch = require('node-fetch');
-//const myrequest = require('request');
 const axios = require('axios')
 const qs = require('querystring')
 
@@ -34,11 +34,11 @@ app.use(bodyParser.json());
     const userAuthentication = () =>  {
       //----------------------------
         const requestBody = {
-          username: "agent1",//req.body.username,
-          password: "agent1",//req.body.password,
-          client_id: "Bank",//process.env.CLIENT_ID || "Bank",
-          client_secret: '2e991b1c-d340-437d-91a2-620465c51a4e', //process.env.CLIENT_SECRET || '2e991b1c-d340-437d-91a2-620465c51a4e',
-          grant_type:  'password' //process.env.GRANT_TYPE || 'password'
+          username: process.env.username,
+          password: process.env.password,//req.body.password,
+          client_id: process.env.CLIENT_ID || "Bank",
+          client_secret: process.env.CLIENT_SECRET || '2e991b1c-d340-437d-91a2-620465c51a4e',
+          grant_type: process.env.GRANT_TYPE || 'password'
         }
         var config = {
           headers: {
@@ -72,8 +72,8 @@ app.use(bodyParser.json());
               .then((responses) => {
                 token = responses.data.access_token;
                 var requestBody1 = {
-                  client_id: "Bank",//process.env.CLIENT_ID || "Bank",,
-                  client_secret: '2e991b1c-d340-437d-91a2-620465c51a4e', //process.env.CLIENT_SECRET || '2e991b1c-d340-437d-91a2-620465c51a4e',
+                  client_id: process.env.CLIENT_ID || "Bank",
+                  client_secret: process.env.CLIENT_SECRET || '2e991b1c-d340-437d-91a2-620465c51a4e',
                   token: token,
                   grant_type: 'password',
                 }
