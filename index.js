@@ -30,8 +30,8 @@ app.use(bodyParser.json());
     console.log(msg);
   };*/
 
-  module.exports.log = function () { 
-    {
+  //module.exports.log = function () { 
+    const userAuthentication = () =>  {
       //----------------------------
         const requestBody = {
           username: "agent1",//req.body.username,
@@ -52,7 +52,7 @@ app.use(bodyParser.json());
       
         axios.post('http://192.168.1.47:8080/auth/realms/university/protocol/openid-connect/token', qs.stringify(requestBody), config)
           .then((response) => {
-            console.log("/////Access Token: "+(response.data.access_token));
+            //console.log("/////Access Token: "+(response.data.access_token));
             if(response.data.access_token){
               var requestBody2 = {
                 grant_type: "urn:ietf:params:oauth:grant-type:uma-ticket",
@@ -87,8 +87,9 @@ app.use(bodyParser.json());
                     axios.post('http://192.168.1.47:8080/auth/realms/university/protocol/openid-connect/token/introspect', qs.stringify(requestBody1), config3)
                     .then((responsess) => {
                       responsess.data.access_token=token;
-                      console.log("/////Introspection ",responses);
-                      res.send({data:responses.data});
+                      ///////////////////////////////////////////////////////////console.log("/////Introspection ",responses);
+                      return responsess.data;
+                     // res.send({data:responses.data});
                     })
                     .catch((er) => {
                       console.log(er);
@@ -96,9 +97,9 @@ app.use(bodyParser.json());
                     })
       
               // responses.data.access_token=token;
-                console.log("///// RPT  ",responses);
+                //console.log("///// RPT  ",responses);
                 //res.send({data:responses.data});
-                return responses.data;
+                //return responses.data;
               })
               .catch((er) => {
                 console.log(er);
@@ -111,5 +112,6 @@ app.use(bodyParser.json());
             console.log(err);
             res.status(err.response.status).send({ error: "T---------token not found" });
           })
-        }
-  };
+        };
+
+        exports.userAuthentication=userAuthentication;
