@@ -1,0 +1,10 @@
+{
+    "env": {
+        "username": "agent1",
+        "CLIENT_ID":"Bank",
+        "CLIENT_SECRET":"2e991b1c-d340-437d-91a2-620465c51a4e",
+        "GRANT_TYPE":"password",
+        "USERNAME":"agent1",
+        "PASSWORD":"agent1"
+    }
+}

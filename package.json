@@ -1,6 +1,6 @@
 {
   "name": "cim-keycloak",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "modules",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "keycloak-connect": "^11.0.2",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.4"
   }
 }
