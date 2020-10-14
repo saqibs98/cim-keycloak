@@ -116,10 +116,8 @@ app.use(bodyParser.json());
 
 
       // F.U.N.C.T.I.O.N   C.A.L.L.I.N.G
-/*
   userAuthentication('agent1','agent1').then((e)=>{
     console.log("result : ///// " + e.data);
   }).catch( (er)=>{
     console.log("reject error : " + er);
   })
-*/
