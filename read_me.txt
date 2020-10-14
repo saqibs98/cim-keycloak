@@ -1,5 +1,8 @@
 ************** NPM FOR KEYCLOAK AUTHENTICATION AND AUTHORIZATION ******************
 
+1. run npm init
+2. sudo npm install nodemon
+3. 
 * To install this npm run "sudo npm install cim-keycloak"
 
     It will create a folder in your directory called "node_modules" in which all the modules(dependancies required to run cim-keycloak) are present including 'cim-keycloak'
